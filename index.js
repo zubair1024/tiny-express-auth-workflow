@@ -7,6 +7,7 @@ dotenv.config();
 
 //import routes
 const authRoute = require("./routes/auth");
+const testRoute = require("./routes/test");
 
 //connect to DB
 mongoose.connect(
@@ -22,6 +23,7 @@ app.use(express.json());
 
 //Route Middlewares
 app.use("/api/user", authRoute);
+app.use("/api/test", testRoute);
 
 app.listen(process.env.WEB_PORT, () =>
   console.log(`Listening on PORT ${process.env.WEB_PORT}...`)
